@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+        <title>file文件几种格式的相互转换 | Mint Forge</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel='shortcut icon' href="/favicon.ico">
+    
+<link rel="stylesheet" href="/css/index.css">
+
+    
+<link rel="stylesheet" href="/css/plugins/highlight/dark.css">
+
+    
+<link rel="stylesheet" href="/css/plugins/iconfont/iconfont.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="navbar-container">
+    <div class="navbar">
+        <ul>
+            <li><a href="/">MINT FORGE</a></li>
+            <li><a href="/">首页</a></li>
+            <li><a href='/categories'>CATEGORIES</a></li>
+            <li><a href="/tags">TAGS</a></li>
+            <li><a href="/about">ABOUT</a></li>
+        </ul>
+    </div>
+</div>
+    <div class="all-container">
+        <div class="article-container">
+    <h2 class="title">file文件几种格式的相互转换</h2>
+    <span class="info">2020年7月5日</span>
+    
+    
+        <div class="toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#file、blob、canvas、dataUrl几种对象之间的转换"><span class="toc-number">1.</span> <span class="toc-text">file、blob、canvas、dataUrl几种对象之间的转换</span></a></li></ol>
+        </div>
+    
+
+    <div class="content"><h2 id="file、blob、canvas、dataUrl几种对象之间的转换"><a href="#file、blob、canvas、dataUrl几种对象之间的转换" class="headerlink" title="file、blob、canvas、dataUrl几种对象之间的转换"></a><code>file、blob、canvas、dataUrl几种对象之间的转换</code></h2><ul>
+<li>blob|file对象转成dataUrl<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> readBlobAsDataURL (blob|file, callback) &#123;</span><br><span class="line">    <span class="built_in">let</span> fr = new FileReader()</span><br><span class="line">    fr.onload = <span class="keyword">function</span> (e) &#123;</span><br><span class="line">        callback &amp;&amp; callback(e.target.result)</span><br><span class="line">    &#125;</span><br><span class="line">    fr.readAsDataURL(blob)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><code>canvas转换成dataUrl</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">canvas.toDataURL(<span class="string">'image/png'</span>|<span class="string">'image/jpeg'</span>,0.8)</span><br></pre></td></tr></table></figure></li>
+<li><code>dataUrl转换成blob</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> dataURLtoBlob (dataurl) &#123;</span><br><span class="line">    <span class="built_in">let</span> arr = dataurl.split(<span class="string">','</span>)</span><br><span class="line">    <span class="built_in">let</span> mime = arr[0].match(/:(.*?);/)[1]</span><br><span class="line">    <span class="built_in">let</span> bstr = atob(arr[1])</span><br><span class="line">    <span class="built_in">let</span> n = bstr.length</span><br><span class="line">    <span class="built_in">let</span> u8arr = new Uint8Array(n)</span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        u8arr[n] = bstr.charCodeAt(n)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> new Blob([u8arr], &#123; <span class="built_in">type</span>: mime &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><code>dataUrl转换成file</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">function</span> dataURLtoFile (dataurl, filename) &#123;</span><br><span class="line">    <span class="built_in">let</span> arr = dataurl.split(<span class="string">','</span>)</span><br><span class="line">    <span class="built_in">let</span> mime = arr[0].match(/:(.*?);/)[1]</span><br><span class="line"></span><br><span class="line">    <span class="built_in">let</span> bstr = atob(arr[1])</span><br><span class="line">    <span class="built_in">let</span> n = bstr.length</span><br><span class="line">    <span class="built_in">let</span> u8arr = new Uint8Array(n)</span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        u8arr[n] = bstr.charCodeAt(n)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> new File([u8arr], filename, &#123; <span class="built_in">type</span>: mime &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><code>文件大小格式化</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> formateFileSize(fileSize) &#123;</span><br><span class="line">    <span class="keyword">if</span> (fileSize === 0) &#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="string">'0.0M'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (fileSize &lt; 1024) &#123;</span><br><span class="line">        <span class="built_in">return</span> `<span class="variable">$&#123;fileSize&#125;</span>B`</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (fileSize &lt; 1024 * 1024) &#123;</span><br><span class="line">        <span class="built_in">return</span> `<span class="variable">$&#123;(fileSize / 1024).toFixed(2)&#125;</span>KB`</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (fileSize &lt; 1024 * 1024 * 1024) &#123;</span><br><span class="line">        <span class="built_in">return</span> `<span class="variable">$&#123;(fileSize / 1024 / 1024).toFixed(2)&#125;</span>MB`</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">return</span> `<span class="variable">$&#123;(fileSize / 1024 / 1024 / 1024).toFixed(2)&#125;</span>GB`</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</div>
+    <hr>
+    <div class="tags"></div>
+</div>
+<div class="paging">
+    
+    
+        <a id="prev" href="/2020/07/05/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E3%80%81%E6%8C%87%E4%BB%A4%E3%80%81%E6%8F%92%E4%BB%B6/">PREV_PAGE</a>
+    
+    
+        <a id="next" href="/2020/07/05/%E5%AE%9E%E7%8E%B0%E6%96%87%E5%AD%97%E8%B6%85%E5%87%BA%E5%B1%95%E7%A4%BA%E5%B1%95%E5%BC%80%E5%85%A8%E6%96%87%E7%9A%84%E6%95%88%E6%9E%9C/">NEXT_PAGE</a>
+    
+</div>
+<div class="footer">
+    <p><a href="/about/">Please Contact the Author before Reproduce.</a></p>
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+
+</script>
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="/js/iconfont.js"></script>
+
+<style>
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+</style>
+    
+    </div>
+    <div class='rights'>
+	<p>©<span id='years'></span> Mint Forge. All Rights Reserved.</p>
+</div>
+<script type="text/javascript">
+	var today = new Date()
+	var years = today.getFullYear()
+	document.getElementById('years').innerHTML=years
+</script>
+    
+<script src="/js/iconfont.js"></script>
+
+<style>
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+</style>
+    
+</body>
+</html>
