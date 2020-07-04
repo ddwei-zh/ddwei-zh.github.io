@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+        <title>函数防抖与节流 | Mint Forge</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel='shortcut icon' href="/favicon.ico">
+    
+<link rel="stylesheet" href="/css/index.css">
+
+    
+<link rel="stylesheet" href="/css/plugins/highlight/dark.css">
+
+    
+<link rel="stylesheet" href="/css/plugins/iconfont/iconfont.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="navbar-container">
+    <div class="navbar">
+        <ul>
+            <li><a href="/">MINT FORGE</a></li>
+            <li><a href="/">首页</a></li>
+            <li><a href='/categories'>CATEGORIES</a></li>
+            <li><a href="/tags">TAGS</a></li>
+            <li><a href="/about">ABOUT</a></li>
+        </ul>
+    </div>
+</div>
+    <div class="all-container">
+        <div class="article-container">
+    <h2 class="title">函数防抖与节流</h2>
+    <span class="info">2020年7月5日</span>
+    
+    
+        <div class="toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见的回调方式，以监听鼠标抬起为例"><span class="toc-number">2.</span> <span class="toc-text">常见的回调方式，以监听鼠标抬起为例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防抖（debounce）"><span class="toc-number">3.</span> <span class="toc-text">防抖（debounce）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#节流（throttle）"><span class="toc-number">4.</span> <span class="toc-text">节流（throttle）</span></a></li></ol>
+        </div>
+    
+
+    <div class="content"><blockquote>
+<p><strong>参考文章</strong></p>
+</blockquote>
+<ul>
+<li><a href="https://www.qinshenxue.com/article/what-is-debounce-and-throttle.html" target="_blank" rel="noopener"><strong>防抖与节流</strong></a></li>
+<li><a href="https://juejin.im/post/5b8de829f265da43623c4261" target="_blank" rel="noopener">“7分钟了解js的防抖、节流以及使用场景”</a><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2>前端中常见的监听鼠标移动、键盘输入、滚动条滚动等由于回调的频繁触发会带来严重的性能问题，而且界面的体验不是很 友好，为了解决这类问题，函数的防抖和节流随之出现。   <h2 id="常见的回调方式，以监听鼠标抬起为例"><a href="#常见的回调方式，以监听鼠标抬起为例" class="headerlink" title="常见的回调方式，以监听鼠标抬起为例"></a><strong>常见的回调方式，以监听鼠标抬起为例</strong></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'mouseup'</span>,fn);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 需要执行的函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>存在的问题</strong></p>
+</blockquote>
+</li>
+<li>回调函数会一直触发 <h2 id="防抖（debounce）"><a href="#防抖（debounce）" class="headerlink" title="防抖（debounce）"></a><strong>防抖（debounce）</strong></h2>在规定的时间间隔内，如果没有被再次触发，函数执行，否则清除定时器，重新执行   </li>
+</ul>
+<hr>
+<blockquote>
+<p>实现方式</p>
+</blockquote>
+<ul>
+<li><strong>定时器</strong></li>
+<li><strong>时间戳</strong><blockquote>
+<p><strong>demo</strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn,delay</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timeoutId = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> context =  <span class="keyword">this</span>; <span class="comment">//setTimeout会丢失上下文，重新绑定</span></span><br><span class="line">        <span class="keyword">let</span> args = <span class="built_in">arguments</span>; <span class="comment">// 绑定的参数是传给了debounce函数，需要参数传递给fn</span></span><br><span class="line">        clearTimeout(timeoutId);</span><br><span class="line">        timeoutId = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            fn.apply(context,args);</span><br><span class="line">        &#125;,delay);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="节流（throttle）"><a href="#节流（throttle）" class="headerlink" title="节流（throttle）"></a><strong>节流（throttle）</strong></h2>在规定的时间内，只执行第一次的触发，不会重新计时，时间间隔后执行<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn,delay</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timeoutId = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> context = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">let</span> args = <span class="built_in">arguments</span>;</span><br><span class="line">        <span class="keyword">if</span>(!timeoutId) &#123;</span><br><span class="line">            timeoutId = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                fn.apply(context,args);</span><br><span class="line">                timeoutId = <span class="literal">null</span>;</span><br><span class="line">            &#125;,delay);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr />
+</li>
+</ul>
+</div>
+    <hr>
+    <div class="tags"></div>
+</div>
+<div class="paging">
+    
+    
+        <a id="prev" href="/2020/07/05/%E5%AE%9E%E7%8E%B0%E6%96%87%E5%AD%97%E8%B6%85%E5%87%BA%E5%B1%95%E7%A4%BA%E5%B1%95%E5%BC%80%E5%85%A8%E6%96%87%E7%9A%84%E6%95%88%E6%9E%9C/">PREV_PAGE</a>
+    
+    
+        <a id="next" href="/2020/07/05/axois%E7%BB%88%E6%AD%A2%E8%AF%B7%E6%B1%82/">NEXT_PAGE</a>
+    
+</div>
+<div class="footer">
+    <p><a href="/about/">Please Contact the Author before Reproduce.</a></p>
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+
+</script>
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="/js/iconfont.js"></script>
+
+<style>
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+</style>
+    
+    </div>
+    <div class='rights'>
+	<p>©<span id='years'></span> Mint Forge. All Rights Reserved.</p>
+</div>
+<script type="text/javascript">
+	var today = new Date()
+	var years = today.getFullYear()
+	document.getElementById('years').innerHTML=years
+</script>
+    
+<script src="/js/iconfont.js"></script>
+
+<style>
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+</style>
+    
+</body>
+</html>
