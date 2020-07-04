@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+        <title>git使用 | Mint Forge</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel='shortcut icon' href="/favicon.ico">
+    
+<link rel="stylesheet" href="/css/index.css">
+
+    
+<link rel="stylesheet" href="/css/plugins/highlight/dark.css">
+
+    
+<link rel="stylesheet" href="/css/plugins/iconfont/iconfont.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="navbar-container">
+    <div class="navbar">
+        <ul>
+            <li><a href="/">MINT FORGE</a></li>
+            <li><a href="/">首页</a></li>
+            <li><a href='/categories'>CATEGORIES</a></li>
+            <li><a href="/tags">TAGS</a></li>
+            <li><a href="/about">ABOUT</a></li>
+        </ul>
+    </div>
+</div>
+    <div class="all-container">
+        <div class="article-container">
+    <h2 class="title">git使用</h2>
+    <span class="info">2020年7月5日</span>
+    
+    
+        <div class="toc">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#github"><span class="toc-number">1.</span> <span class="toc-text">github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gitlab"><span class="toc-number">2.</span> <span class="toc-text">gitlab</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git的安装与使用"><span class="toc-number">3.</span> <span class="toc-text">git的安装与使用</span></a></li></ol>
+        </div>
+    
+
+    <div class="content"><h3 id="github"><a href="#github" class="headerlink" title="github"></a><code>github</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">基于git 在线代码仓库 网站界面 互联网开放</span><br></pre></td></tr></table></figure>
+<h3 id="gitlab"><a href="#gitlab" class="headerlink" title="gitlab"></a><code>gitlab</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">基于git   在线码仓库软件 搭建类似github的系统 内部网络git私服 Auto Dev Ops</span><br></pre></td></tr></table></figure>
+<h3 id="git的安装与使用"><a href="#git的安装与使用" class="headerlink" title="git的安装与使用"></a><code>git的安装与使用</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git  命令 工具 版本控制系统</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>https&amp;ssh两种方式</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~ win表示是c:\Users\admin</span><br><span class="line">--ssh </span><br><span class="line">    ssh-keygen -t rsa -b 4096 -C &quot;1335950102@qq.com&quot;</span><br><span class="line">    ls -al ~&#x2F;.ssh</span><br><span class="line">    ssh -T git@github.com</span><br><span class="line">    git@github.com:ddwei-zh&#x2F;vuecli4.0Demo.git</span><br><span class="line">--https</span><br><span class="line">    https:&#x2F;&#x2F;github.com&#x2F;ddwei-zh&#x2F;vuecli4.0Demo.git</span><br></pre></td></tr></table></figure></li>
+<li><code>[常用的命令](https://www.jianshu.com/p/38921d19ba0a)</code></li>
+</ul>
+<p>– 本地新建一个文件夹，初始化.git后，使用git remote add origin xxx建立仓库联系<br>–  添加到暂存区git add<br>–  提交到本地仓库 git commit -m<br>– 更改提交日志 git –ammend<br>– 查看本地分支 git branch<br>– 查看仓库分支 git branch -a<br>– 使用git pull 更新分支信息<br>– git checkout -a xx （新建并建立分支）</p>
+<blockquote>
+<p>个人常用命令</p>
+</blockquote>
+<ul>
+<li>丢弃修改（本地修改或者暂存区的修改）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore</span><br></pre></td></tr></table></figure></li>
+<li>储藏与恢复 (用于暂存区与工作区)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git stash 保存现场</span><br><span class="line">git stash pop stash@&#123;num&#125; | git stash apply stash@&#123;num&#125;</span><br></pre></td></tr></table></figure></li>
+<li>回退(reset revert)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. git revert commitCode (通过git <span class="built_in">log</span>查看,需要撤销的版本，会新建一次commit,回退后push时需要注意可能存在conflict)</span><br><span class="line">2.git reset --soft(回退commit)|--mixed(默认,回退commit与add|--hard(回退到上次commit) commitCode (需要回退到的版本)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>工具 </p>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>git gitGui</li>
+<li>sourceTree 、beyondCompare（代码比对）</li>
+</ol>
+</div>
+    <hr>
+    <div class="tags"></div>
+</div>
+<div class="paging">
+    
+    
+        <a id="prev" href="/2020/07/05/%E5%89%8D%E7%AB%AF%E5%B8%B8%E8%A7%81%E4%B8%8B%E8%BD%BD%E7%9A%84%E6%80%BB%E7%BB%93/">PREV_PAGE</a>
+    
+    
+        <a id="next" href="/2020/07/05/ant-design-vue%E4%BB%A5%E5%8F%8Aelement-ui%E4%B8%AD%E8%A1%A8%E6%A0%BC%E6%8C%89%E5%88%97%E5%90%88%E5%B9%B6%E7%9B%B8%E5%90%8C%E8%A1%8C/">NEXT_PAGE</a>
+    
+</div>
+<div class="footer">
+    <p><a href="/about/">Please Contact the Author before Reproduce.</a></p>
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+
+</script>
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
+
+<script src="/js/iconfont.js"></script>
+
+<style>
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+</style>
+    
+    </div>
+    <div class='rights'>
+	<p>©<span id='years'></span> Mint Forge. All Rights Reserved.</p>
+</div>
+<script type="text/javascript">
+	var today = new Date()
+	var years = today.getFullYear()
+	document.getElementById('years').innerHTML=years
+</script>
+    
+<script src="/js/iconfont.js"></script>
+
+<style>
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+</style>
+    
+</body>
+</html>
