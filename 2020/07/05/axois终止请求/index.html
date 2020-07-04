@@ -1,139 +1,46 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     
-	<title>axios终止请求 - 菜鸟的平凡之路</title>
-    <meta name="author" content="John Doe">
+        <title>axios终止请求 | Mint Forge</title>
     
-	<meta name="description" content="&lt;h1 id=&#34;axios中止单个网络请求&#34;&gt;&lt;a href=&#34;#axios中止单个网络请求&#34; class=&#34;headerlink&#34; title=&#34;axios中止单个网络请求&#34;&gt;&lt;/a&gt;&lt;code&gt;axios中止单个网络请求&lt;/code&gt;&lt;/h1&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; CancelToken = axios.CancelToken&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;config.cancelToken = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; CancelToken(&lt;span class=&#34;function&#34;&gt;(&lt;span class=&#34;params&#34;&gt;cancel&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 存储并使用cancel&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h1 id=&#34;axios中止所有的网络请求&#34;&gt;&lt;a href=&#34;#axios中止所有的网络请求&#34; class=&#34;headerlink&#34; title=&#34;axios中止所有的网络请求&#34;&gt;&lt;/a&gt;&lt;code&gt;axios中止所有的网络请求&lt;/code&gt;&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;使用CancelToken&lt;/li&gt;
-&lt;li&gt;在axios的请求拦截中，使用store存储每个请求的cancelToken实例&lt;/li&gt;
-&lt;li&gt;拦截路由，调用cancelToken()方法终止请求&lt;h1 id=&#34;几种控制页面隐藏与显示的方式&#34;&gt;&lt;a href=&#34;#几种控制页面隐藏与显示的方式&#34; class=&#34;headerlink&#34; title=&#34;几种控制页面隐藏与显示的方式&#34;&gt;&lt;/a&gt;&lt;code&gt;几种控制页面隐藏与显示的方式&lt;/code&gt;&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;opacity&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;控制透明度&lt;/li&gt;
-&lt;li&gt;父级及子级事件生效&lt;/li&gt;
-&lt;li&gt;子级根据最小的opacity生效&lt;blockquote&gt;
-&lt;p&gt;v-show&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;本质使用display: none|block&lt;/li&gt;
-&lt;li&gt;不占位，元素节点存在&lt;/li&gt;
-&lt;li&gt;父级优先级&lt;blockquote&gt;
-&lt;p&gt;v-if&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;不占位&lt;/li&gt;
-&lt;li&gt;元素从页面中去除&lt;h1 id=&#34;监听路由&#34;&gt;&lt;a href=&#34;#监听路由&#34; class=&#34;headerlink&#34; title=&#34;监听路由&#34;&gt;&lt;/a&gt;&lt;code&gt;监听路由&lt;/code&gt;&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;使用watch&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;watch: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    $route(to,&lt;span class=&#34;keyword&#34;&gt;from&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;comment&#34;&gt;//&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;watch: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&#39;$route&#39;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&#39;method&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;watch: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    $route: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        handler: &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;to,from&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;comment&#34;&gt;//&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        deep: &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
-&lt;p&gt;vue-router的声明周期钩子&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;beforeRouteEnter(to,&lt;span class=&#34;keyword&#34;&gt;from&lt;/span&gt;,next) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;//&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;beforeRouteUpdate(to,&lt;span class=&#34;keyword&#34;&gt;from&lt;/span&gt;,next) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;//&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;beforeRouteLeave(to,&lt;span class=&#34;keyword&#34;&gt;from&lt;/span&gt;,next) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;//&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
-&lt;p&gt;全局路由拦截&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;    router.beforeEach(&lt;span class=&#34;function&#34;&gt;(&lt;span class=&#34;params&#34;&gt;to,&lt;span class=&#34;keyword&#34;&gt;from&lt;/span&gt;,next&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;comment&#34;&gt;//&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    router.beforeResolve(&lt;span class=&#34;function&#34;&gt;(&lt;span class=&#34;params&#34;&gt;to,&lt;span class=&#34;keyword&#34;&gt;from&lt;/span&gt;,next&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;comment&#34;&gt;//&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    router.afterEach(&lt;span class=&#34;function&#34;&gt;(&lt;span class=&#34;params&#34;&gt;to,&lt;span class=&#34;keyword&#34;&gt;from&lt;/span&gt;&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;comment&#34;&gt;//&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
-&lt;p&gt;路由独享守卫&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    path: xxx,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    name: xxx,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    component: xxx,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    beforeEnter: &lt;span class=&#34;function&#34;&gt;(&lt;span class=&#34;params&#34;&gt;to,&lt;span class=&#34;keyword&#34;&gt;from&lt;/span&gt;,next&lt;/span&gt;) =&amp;gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;comment&#34;&gt;//&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;/ol&gt;
-"> <!-- TODO: truncate -->
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-	<link href="atom.xml" rel="alternate" title="菜鸟的平凡之路" type="application/atom+xml">
-	<link href="/favicon.ico" rel="shortcut icon">
-    <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-    <link href="/stylesheets/custom.css" media="screen, projection" rel="stylesheet" type="text/css">
-    <link href="/stylesheets/hljs.css" media="screen, projection" rel="stylesheet" type="text/css">
-
-    <link href='//fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Amethysta' rel='stylesheet' type='text/css'>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![}]-->
-
-    <script type="text/javascript" src="/javascripts/jquery-tapir.js"></script>
-
-    <!-- remove or comment it to disable ajaxification -->   
-    <!-- <script src="/javascripts/ajaxify.js"></script> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel='shortcut icon' href="/favicon.ico">
+    
+<link rel="stylesheet" href="/css/index.css">
 
     
+<link rel="stylesheet" href="/css/plugins/highlight/dark.css">
 
     
+<link rel="stylesheet" href="/css/plugins/iconfont/iconfont.css">
 
 <meta name="generator" content="Hexo 4.2.1"></head>
-
-
 <body>
-    <div id="wrapper">
-    <header id="header" class="inner"><!-- for more effects see _animate.scss -->
-<h1 class="animated bounceInDown">
-    <div id="headerbg">
-        菜鸟的平凡之路
+    <div class="navbar-container">
+    <div class="navbar">
+        <ul>
+            <li><a href="/">MINT FORGE</a></li>
+            <li><a href="/">首页</a></li>
+            <li><a href='/categories'>CATEGORIES</a></li>
+            <li><a href="/tags">TAGS</a></li>
+            <li><a href="/about">ABOUT</a></li>
+        </ul>
     </div>
-</h1>
-<span class="subtitle"></span>
-<br>
-
-<ul id="social-links" style="text-align:center; clear:both;">
-  
-  
-  
-  
-  
-  
-  
-  
-</ul>
-
-
-<!-- use full url including 'index.html' for navigation bar if you are using ajax -->
-<ul id="nav">
-	<li id="ajax"><a href="/index.html">Home</a></li>
-	<li id="ajax"><a href="/archives/index.html">Archives</a></li>
-	<li id="ajax"><a href="/tags/index.html">Tags</a></li>
-    <li><a href="/atom.xml">RSS</a></li>
+</div>
+    <div class="all-container">
+        <div class="article-container">
+    <h2 class="title">axios终止请求</h2>
+    <span class="info">2020年7月5日</span>
     
-    <li>
-    <div id="dark">
-        <form action="//www.google.com.hk/search" method="get" accept-charset="UTF-8" id="search">
-            <input type="hidden" name="sitesearch" value="http://yoursite.com" />
-            <input type="text" name="q" results="0" placeholder="Search..." x-webkit-speech />
-        </form>
-    </div>
-    </li>
-        
-</ul>
+    
+        <div class="toc">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#axios中止单个网络请求"><span class="toc-number">1.</span> <span class="toc-text">axios中止单个网络请求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#axios中止所有的网络请求"><span class="toc-number">2.</span> <span class="toc-text">axios中止所有的网络请求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#几种控制页面隐藏与显示的方式"><span class="toc-number">3.</span> <span class="toc-text">几种控制页面隐藏与显示的方式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#监听路由"><span class="toc-number">4.</span> <span class="toc-text">监听路由</span></a></li></ol>
+        </div>
+    
 
-
-
-
-</header>
-
-<div id="toload">
-<!-- begin toload -->
-    <div id="content" class="inner">
-        <article class="post">
-	<h2 class="title">axios终止请求</h2>
-    <div class="meta">
-        <div class="date">Published on: <time datetime="2020-07-04T16:14:25.770Z" itemprop="datePublished">Jul 5, 2020</time>
-</div>
-        <div class="tags">Tags: 
-
-
-</div>
-    </div>
-	<div class="entry-content"><h1 id="axios中止单个网络请求"><a href="#axios中止单个网络请求" class="headerlink" title="axios中止单个网络请求"></a><code>axios中止单个网络请求</code></h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> CancelToken = axios.CancelToken</span><br><span class="line">config.cancelToken = <span class="keyword">new</span> CancelToken(<span class="function">(<span class="params">cancel</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 存储并使用cancel</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+    <div class="content"><h1 id="axios中止单个网络请求"><a href="#axios中止单个网络请求" class="headerlink" title="axios中止单个网络请求"></a><code>axios中止单个网络请求</code></h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> CancelToken = axios.CancelToken</span><br><span class="line">config.cancelToken = <span class="keyword">new</span> CancelToken(<span class="function">(<span class="params">cancel</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 存储并使用cancel</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h1 id="axios中止所有的网络请求"><a href="#axios中止所有的网络请求" class="headerlink" title="axios中止所有的网络请求"></a><code>axios中止所有的网络请求</code></h1><ul>
 <li>使用CancelToken</li>
 <li>在axios的请求拦截中，使用store存储每个请求的cancelToken实例</li>
@@ -174,58 +81,62 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: xxx,</span><br><span class="line">    name: xxx,</span><br><span class="line">    component: xxx,</span><br><span class="line">    beforeEnter: <span class="function">(<span class="params">to,<span class="keyword">from</span>,next</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 </div>
-
-<div class="meta">
-	
+    <hr>
+    <div class="tags"></div>
 </div>
-</article>
-
-	<div class="share">
-	<div class="addthis_toolbox addthis_default_style ">
-	
-	
-	<a class="addthis_button_tweet"></a>
-	
-	
-	<a class="addthis_counter addthis_pill_style"></a>
-	</div>
-  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+<div class="paging">
+    
+        <a id="prev" href="/">回到首页</a>
+    
+    
+    
+        <a id="next" href="/2020/07/04/hello-world/">NEXT_PAGE</a>
+    
+</div>
+<div class="footer">
+    <p><a href="/about/">Please Contact the Author before Reproduce.</a></p>
 </div>
 
+<script src="/js/highlight.pack.js"></script>
 
-
-
-    </div>
-    <footer id="footer">
-    <div style="display:inline">
-    Copyright &copy; 2020
-
-    John Doe
-. Powered by <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> |
-    Theme is <a href="https://github.com/wd/hexo-fabric" target="_blank" rel="noopener">hexo-fabric</a>, fork from <a href="http://github.com/panks/fabric" target="_blank" rel="noopener">fabric</a> by <a href="http://panks.me" target="_blank" rel="noopener">Pankaj Kumar</a>
-</div>
-
-
-    </footer>
-    <script src="/javascripts/fabric.js"></script>
-<script src="/javascripts/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-	$('.fancybox').fancybox();
-})(jQuery);
 </script>
- <!-- Delete or comment this line to disable Fancybox -->
+<script>
+	hljs.initHighlightingOnLoad();
+</script>
 
+<script src="/js/iconfont.js"></script>
 
-
-<!-- end toload --> 
+<style>
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+</style>
+    
+    </div>
+    <div class='rights'>
+	<p>©<span id='years'></span> Mint Forge. All Rights Reserved.</p>
 </div>
-</div>
-<script src="/javascripts/jquery.ui.totop.js" type="text/javascript"></script>
 <script type="text/javascript">
-/*<![CDATA[*/
-;(function($){$().UItoTop({easingType:'easeOutCirc'});})(jQuery); 
-/*]]>*/
-</script><!-- remove it to remove the scroll to top button -->
+	var today = new Date()
+	var years = today.getFullYear()
+	document.getElementById('years').innerHTML=years
+</script>
+    
+<script src="/js/iconfont.js"></script>
+
+<style>
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+</style>
+    
 </body>
 </html>
