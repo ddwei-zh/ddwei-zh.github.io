@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>菜鸟的平凡之路</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-07-05T05:23:40.833Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端模块化的思考</title>
+    <link href="http://yoursite.com/2020/07/05/qian-duan-mo-kuai-hua-de-yi-xie-si-kao/"/>
+    <id>http://yoursite.com/2020/07/05/qian-duan-mo-kuai-hua-de-yi-xie-si-kao/</id>
+    <published>2020-07-04T17:12:01.536Z</published>
+    <updated>2020-07-05T05:23:40.833Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;commonJs&quot;&gt;&lt;a href=&quot;#commonJs&quot; class=&quot;headerlink&quot; title=&quot;commonJs&quot;&gt;&lt;/a&gt;&lt;code&gt;commonJs&lt;/code&gt;&lt;/h2&gt;&lt;figure class=&quot;highlight
+        
+      
+    
+    </summary>
+    
+    
+      <category term="web前端" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="前端模块化" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端常见下载方法的总结</title>
+    <link href="http://yoursite.com/2020/07/05/qian-duan-chang-jian-xia-zai-de-zong-jie/"/>
+    <id>http://yoursite.com/2020/07/05/qian-duan-chang-jian-xia-zai-de-zong-jie/</id>
+    <published>2020-07-04T17:11:56.673Z</published>
+    <updated>2020-07-05T05:23:06.337Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://juejin.im/post/5d254a846fb9a07efd47337e&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;常用的下载方式&lt;/a&gt;&lt;h2 id=&quot;接口是下载文件的路径&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="web前端" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git使用</title>
+    <link href="http://yoursite.com/2020/07/05/git-shi-yong/"/>
+    <id>http://yoursite.com/2020/07/05/git-shi-yong/</id>
+    <published>2020-07-04T17:11:34.462Z</published>
+    <updated>2020-07-05T05:24:56.619Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;github&quot;&gt;&lt;a href=&quot;#github&quot; class=&quot;headerlink&quot; title=&quot;github&quot;&gt;&lt;/a&gt;&lt;code&gt;github&lt;/code&gt;&lt;/h3&gt;&lt;figure class=&quot;highlight
+        
+      
+    
+    </summary>
+    
+    
+      <category term="web前端" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用ant-design-vue和element-ui中的表格合同列的相同行的方法</title>
+    <link href="http://yoursite.com/2020/07/05/ant-design-vue-yi-ji-element-ui-zhong-biao-ge-an-lie-he-bing-xiang-tong-xing/"/>
+    <id>http://yoursite.com/2020/07/05/ant-design-vue-yi-ji-element-ui-zhong-biao-ge-an-lie-he-bing-xiang-tong-xing/</id>
+    <published>2020-07-04T17:09:54.582Z</published>
+    <updated>2020-07-05T05:24:43.182Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;ant-design-vue&quot;&gt;&lt;a href=&quot;#ant-design-vue&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="web前端" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="element-ui" scheme="http://yoursite.com/tags/element-ui/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>本地启动服务看vue应用在线上的效果</title>
+    <link href="http://yoursite.com/2020/07/05/ben-di-qi-dong-fu-wu-kan-vue-ying-yong-zai-xian-shang-de-xiao-guo/"/>
+    <id>http://yoursite.com/2020/07/05/ben-di-qi-dong-fu-wu-kan-vue-ying-yong-zai-xian-shang-de-xiao-guo/</id>
+    <published>2020-07-04T17:09:38.533Z</published>
+    <updated>2020-07-05T05:11:12.038Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;使用http-server&quot;&gt;&lt;a href=&quot;#使用http-server&quot; class=&quot;headerlink&quot; title=&quot;使用http-server&quot;&gt;&lt;/a&gt;使用http-server&lt;/h2&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="web前端" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="webpack" scheme="http://yoursite.com/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>封装一个拖曳&amp;缩放组件</title>
+    <link href="http://yoursite.com/2020/07/05/feng-zhuang-yi-ge-tuo-yi-suo-fang-zu-jian/"/>
+    <id>http://yoursite.com/2020/07/05/feng-zhuang-yi-ge-tuo-yi-suo-fang-zu-jian/</id>
+    <published>2020-07-04T17:09:28.579Z</published>
+    <updated>2020-07-05T05:22:37.786Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;常用的组件&quot;&gt;&lt;a href=&quot;#常用的组件&quot; class=&quot;headerlink&quot; title=&quot;常用的组件&quot;&gt;&lt;/a&gt;常用的组件&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="web前端" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自定义组件、指令、插件</title>
+    <link href="http://yoursite.com/2020/07/05/zi-ding-yi-zu-jian-zhi-ling-cha-jian/"/>
+    <id>http://yoursite.com/2020/07/05/zi-ding-yi-zu-jian-zhi-ling-cha-jian/</id>
+    <published>2020-07-04T17:08:48.081Z</published>
+    <updated>2020-07-05T05:24:32.780Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;组件&quot;&gt;&lt;a href=&quot;#组件&quot; class=&quot;headerlink&quot; title=&quot;组件&quot;&gt;&lt;/a&gt;组件&lt;/h1&gt;&lt;h1 id=&quot;插件&quot;&gt;&lt;a href=&quot;#插件&quot; class=&quot;headerlink&quot; title=&quot;插件&quot;&gt;&lt;/a&gt;插件&lt;/h1&gt;&lt;h1
+        
+      
+    
+    </summary>
+    
+    
+      <category term="web前端" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="directive" scheme="http://yoursite.com/tags/directive/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>file文件几种格式的相互转换</title>
+    <link href="http://yoursite.com/2020/07/05/wen-jian-ji-chong-ge-shi-de-zhuan-huan/"/>
+    <id>http://yoursite.com/2020/07/05/wen-jian-ji-chong-ge-shi-de-zhuan-huan/</id>
+    <published>2020-07-04T17:08:33.039Z</published>
+    <updated>2020-07-05T05:24:19.275Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;file、blob、canvas、dataUrl几种对象之间的转换&quot;&gt;&lt;a href=&quot;#file、blob、canvas、dataUrl几种对象之间的转换&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="web前端" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="工具类" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实现文字超出展示展开全文的效果</title>
+    <link href="http://yoursite.com/2020/07/05/shi-xian-wen-zi-chao-chu-zhan-shi-zhan-kai-quan-wen-de-xiao-guo/"/>
+    <id>http://yoursite.com/2020/07/05/shi-xian-wen-zi-chao-chu-zhan-shi-zhan-kai-quan-wen-de-xiao-guo/</id>
+    <published>2020-07-04T17:04:42.912Z</published>
+    <updated>2020-07-05T05:24:08.043Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;实现文字超过固定行数时展示展开全文的功能&quot;&gt;&lt;a href=&quot;#实现文字超过固定行数时展示展开全文的功能&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="web前端" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="展示全文" scheme="http://yoursite.com/tags/%E5%B1%95%E7%A4%BA%E5%85%A8%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>函数防抖与节流</title>
+    <link href="http://yoursite.com/2020/07/05/han-shu-fang-dou-yu-jie-liu/"/>
+    <id>http://yoursite.com/2020/07/05/han-shu-fang-dou-yu-jie-liu/</id>
+    <published>2020-07-04T17:04:29.576Z</published>
+    <updated>2020-07-05T05:22:49.080Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;参考文章&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>axios终止请求</title>
+    <link href="http://yoursite.com/2020/07/05/axois-zhong-zhi-qing-qiu/"/>
+    <id>http://yoursite.com/2020/07/05/axois-zhong-zhi-qing-qiu/</id>
+    <published>2020-07-04T16:14:25.770Z</published>
+    <updated>2020-07-05T05:24:50.381Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;axios中止单个网络请求&quot;&gt;&lt;a href=&quot;#axios中止单个网络请求&quot; class=&quot;headerlink&quot; title=&quot;axios中止单个网络请求&quot;&gt;&lt;/a&gt;&lt;code&gt;axios中止单个网络请求&lt;/code&gt;&lt;/h1&gt;&lt;figure
+        
+      
+    
+    </summary>
+    
+    
+      <category term="web前端" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="axios" scheme="http://yoursite.com/tags/axios/"/>
+    
+  </entry>
+  
+</feed>
