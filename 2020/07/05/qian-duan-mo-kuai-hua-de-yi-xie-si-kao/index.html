@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="本地启动服务看vue应用在线上的效果, 菜鸟的平凡之路">
+    <meta name="keywords" content="前端模块化的思考, 菜鸟的平凡之路">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>本地启动服务看vue应用在线上的效果 | 菜鸟的平凡之路</title>
+    <title>前端模块化的思考 | 菜鸟的平凡之路</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -415,12 +415,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">本地启动服务看vue应用在线上的效果</h1>
+                    <h1 class="description center-align post-title">前端模块化的思考</h1>
                 </div>
             </div>
         </div>
@@ -537,8 +537,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/webpack/">
-                                <span class="chip bg-color">webpack</span>
+                            <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/">
+                                <span class="chip bg-color">前端模块化</span>
                             </a>
                         
                     </div>
@@ -578,10 +578,11 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="使用http-server"><a href="#使用http-server" class="headerlink" title="使用http-server"></a>使用http-server</h2><h2 id="使用express搭建本地node服务"><a href="#使用express搭建本地node服务" class="headerlink" title="使用express搭建本地node服务"></a>使用express搭建本地node服务</h2><blockquote>
-<p>npm install -g express-generator<br>express projectName<br>cd projectName<br>npm install<br>将打包的dist文件夹下的文件拷贝到express工程的public目录下<br>npm run start启动node服务<br>浏览器输入<a href="http://localhost:3000/#/" target="_blank" rel="noopener">http://localhost:3000/#/</a></p>
-</blockquote>
-
+                <h2 id="commonJs"><a href="#commonJs" class="headerlink" title="commonJs"></a><code>commonJs</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.exports &#x3D; &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">require()</span><br><span class="line">同步</span><br></pre></td></tr></table></figure>
+<h2 id="AMD-amp-require-js"><a href="#AMD-amp-require-js" class="headerlink" title="AMD &amp; require.js"></a><code>AMD &amp; require.js</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">异步</span><br><span class="line">依赖前置 提前执行</span><br><span class="line">define([],function() &#123;</span><br><span class="line"></span><br><span class="line">&#125;) </span><br><span class="line">require([],function() &#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="CMD-amp-sea-js"><a href="#CMD-amp-sea-js" class="headerlink" title="CMD &amp; sea.js"></a><code>CMD &amp; sea.js</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">依赖就近、延迟执行</span><br><span class="line">define(function(require,exports,module) &#123;</span><br><span class="line">    &lt;!-- 需要时声明 --&gt;</span><br><span class="line">&#125;)</span><br><span class="line">seajs.use([],function() &#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a><code>ES6</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">编译时加载</span><br></pre></td></tr></table></figure>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a><code>区别</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">值拷贝 -&gt; 值引用</span><br><span class="line">运行时加载 -&gt; 编译时加载</span><br></pre></td></tr></table></figure>
             </div>
             <hr/>
 
@@ -606,7 +607,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/05/%E6%9C%AC%E5%9C%B0%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1%E7%9C%8Bvue%E5%BA%94%E7%94%A8%E5%9C%A8%E7%BA%BF%E4%B8%8A%E7%9A%84%E6%95%88%E6%9E%9C/">http://yoursite.com/2020/07/05/%E6%9C%AC%E5%9C%B0%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1%E7%9C%8Bvue%E5%BA%94%E7%94%A8%E5%9C%A8%E7%BA%BF%E4%B8%8A%E7%9A%84%E6%95%88%E6%9E%9C/</a>
+                    <a href="http://yoursite.com/2020/07/05/qian-duan-mo-kuai-hua-de-yi-xie-si-kao/">http://yoursite.com/2020/07/05/qian-duan-mo-kuai-hua-de-yi-xie-si-kao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -644,8 +645,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/webpack/">
-                                    <span class="chip bg-color">webpack</span>
+                                <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/">
+                                    <span class="chip bg-color">前端模块化</span>
                                 </a>
                             
                         </div>
@@ -813,30 +814,31 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2020/07/05/ant-design-vue%E4%BB%A5%E5%8F%8Aelement-ui%E4%B8%AD%E8%A1%A8%E6%A0%BC%E6%8C%89%E5%88%97%E5%90%88%E5%B9%B6%E7%9B%B8%E5%90%8C%E8%A1%8C/">
+                <a href="/2020/07/05/qian-duan-mo-kuai-hua-de-yi-xie-si-kao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="使用ant-design-vue和element-ui中的表格合同列的相同行的方法">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="前端模块化的思考">
                         
-                        <span class="card-title">使用ant-design-vue和element-ui中的表格合同列的相同行的方法</span>
+                        <span class="card-title">前端模块化的思考</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ant-design-vue
-设置表格列属性的自定义属性12345678customRender: (value, row, index) &#x3D;&gt; &#123;                const obj &#x3D; 
+                            commonJs12345module.exports &#x3D; &#123;&#125;require()同步
+AMD &amp; require.js12345678异步依赖前置 提前执行define([],function() &
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -849,11 +851,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/element-ui/">
-                        <span class="chip bg-color">element-ui</span>
+                    <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/">
+                        <span class="chip bg-color">前端模块化</span>
                     </a>
                     
                 </div>
@@ -867,21 +870,34 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/05/%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AA%E6%8B%96%E6%9B%B3&%E7%BC%A9%E6%94%BE%E7%BB%84%E4%BB%B6/">
+                <a href="/2020/07/05/qian-duan-chang-jian-xia-zai-de-zong-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="封装一个拖曳&amp;缩放组件">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="前端常见下载方法的总结">
                         
-                        <span class="card-title">封装一个拖曳&amp;缩放组件</span>
+                        <span class="card-title">前端常见下载方法的总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            常用的组件
-vue-drag-resize
-vue-draggable-resizeable  手写一个12345678910111213141516171819202122232425262728293031323334353637383
+                            
+常用的下载方式接口是下载文件的路径
+
+
+window
+location
+a
+iframe
+form的action触发使用blob下载二进制流
+
+
+先请求数据下载
+
+
+fetch
+XMLhTTP12345678910111213141516
                         
                     </div>
                     <div class="publish-info">
@@ -903,8 +919,8 @@ vue-draggable-resizeable  手写一个123456789101112131415161718192021222324252
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/javascript/">
+                        <span class="chip bg-color">javascript</span>
                     </a>
                     
                 </div>

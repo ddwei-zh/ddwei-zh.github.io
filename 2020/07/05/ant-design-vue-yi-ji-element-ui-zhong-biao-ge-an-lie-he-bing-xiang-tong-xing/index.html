@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="前端模块化的思考, 菜鸟的平凡之路">
+    <meta name="keywords" content="使用ant-design-vue和element-ui中的表格合同列的相同行的方法, 菜鸟的平凡之路">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>前端模块化的思考 | 菜鸟的平凡之路</title>
+    <title>使用ant-design-vue和element-ui中的表格合同列的相同行的方法 | 菜鸟的平凡之路</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -415,12 +415,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">前端模块化的思考</h1>
+                    <h1 class="description center-align post-title">使用ant-design-vue和element-ui中的表格合同列的相同行的方法</h1>
                 </div>
             </div>
         </div>
@@ -537,8 +537,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/">
-                                <span class="chip bg-color">前端模块化</span>
+                            <a href="/tags/element-ui/">
+                                <span class="chip bg-color">element-ui</span>
                             </a>
                         
                     </div>
@@ -578,11 +578,20 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="commonJs"><a href="#commonJs" class="headerlink" title="commonJs"></a><code>commonJs</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.exports &#x3D; &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">require()</span><br><span class="line">同步</span><br></pre></td></tr></table></figure>
-<h2 id="AMD-amp-require-js"><a href="#AMD-amp-require-js" class="headerlink" title="AMD &amp; require.js"></a><code>AMD &amp; require.js</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">异步</span><br><span class="line">依赖前置 提前执行</span><br><span class="line">define([],function() &#123;</span><br><span class="line"></span><br><span class="line">&#125;) </span><br><span class="line">require([],function() &#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="CMD-amp-sea-js"><a href="#CMD-amp-sea-js" class="headerlink" title="CMD &amp; sea.js"></a><code>CMD &amp; sea.js</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">依赖就近、延迟执行</span><br><span class="line">define(function(require,exports,module) &#123;</span><br><span class="line">    &lt;!-- 需要时声明 --&gt;</span><br><span class="line">&#125;)</span><br><span class="line">seajs.use([],function() &#123;</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a><code>ES6</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">编译时加载</span><br></pre></td></tr></table></figure>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a><code>区别</code></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">值拷贝 -&gt; 值引用</span><br><span class="line">运行时加载 -&gt; 编译时加载</span><br></pre></td></tr></table></figure>
+                <h2 id="ant-design-vue"><a href="#ant-design-vue" class="headerlink" title="ant-design-vue"></a><strong>ant-design-vue</strong></h2><ul>
+<li><code>设置表格列属性的自定义属性</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">customRender: (value, row, index) &#x3D;&gt; &#123;</span><br><span class="line">                const obj &#x3D; &#123;</span><br><span class="line">                  children: value,</span><br><span class="line">                  attrs: &#123;&#125;</span><br><span class="line">                &#125;;</span><br><span class="line">                obj.attrs.rowSpan &#x3D; this.myArray[index];</span><br><span class="line">                return obj;</span><br><span class="line">              &#125;</span><br></pre></td></tr></table></figure></li>
+<li><code>定义合并单元格方法</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">func(data) &#123;</span><br><span class="line">     &#x2F;&#x2F;保存上一个name</span><br><span class="line">     var x &#x3D; &quot;&quot;;</span><br><span class="line">     &#x2F;&#x2F;相同name出现的次数</span><br><span class="line">     var count &#x3D; 0;</span><br><span class="line">     &#x2F;&#x2F;该name第一次出现的位置</span><br><span class="line">     var startindex &#x3D; 0;</span><br><span class="line"></span><br><span class="line">     for (var i &#x3D; 0; i &lt; data.length; i++) &#123;</span><br><span class="line">       &#x2F;&#x2F;根据学校id进行合并</span><br><span class="line">       var val &#x3D; data[i].schoolId;</span><br><span class="line">       if (i &#x3D;&#x3D; 0) &#123;</span><br><span class="line">         x &#x3D; val;</span><br><span class="line">         count &#x3D; 1;</span><br><span class="line">         this.myArray[0] &#x3D; 1; &#x2F;&#x2F; []</span><br><span class="line">       &#125; else &#123;</span><br><span class="line">         if (val &#x3D;&#x3D; x) &#123;</span><br><span class="line">           count++;</span><br><span class="line">           this.myArray[startindex] &#x3D; count;</span><br><span class="line">           this.myArray[i] &#x3D; 0;</span><br><span class="line">         &#125; else &#123;</span><br><span class="line">           count &#x3D; 1;</span><br><span class="line">           x &#x3D; val;</span><br><span class="line">           startindex &#x3D; i;</span><br><span class="line">           this.myArray[i] &#x3D; 1;</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+<li><code>调用合并单元格的方法</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">this.myArray &#x3D; new Array(this.tableData.length);</span><br><span class="line">this.func(this.tableData);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<hr>
+<h2 id="element-ui"><a href="#element-ui" class="headerlink" title="element-ui"></a><code>element-ui</code></h2><ul>
+<li><code>el-table设置属性</code> span-method=”objectSpanMethod</li>
+<li><code>合并行方法</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function objectSpanMethod (&#123; row, column, rowIndex, columnIndex &#125;) &#123;</span><br><span class="line">    if (columnIndex &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">      &#x2F;&#x2F; 第一列相同学校的单元格合并</span><br><span class="line">      const _row &#x3D; this.spanArr[0][rowIndex]</span><br><span class="line">      return &#123;</span><br><span class="line">        rowspan: _row,</span><br><span class="line">        colspan: 1</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
+<li><code>计算合并的行数</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">rowspan (idx, prop) &#123;</span><br><span class="line">       this.spanArr[idx] = [] // []</span><br><span class="line">       this.position = 0  // 0</span><br><span class="line">       &lt;!-- 要合并的表格数据 --&gt;</span><br><span class="line">       this.tableData.forEach((item, index) =&gt; &#123;</span><br><span class="line">         <span class="keyword">if</span> (index === 0) &#123;</span><br><span class="line">           this.spanArr[idx].push(1)</span><br><span class="line">           this.position = 0</span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           <span class="keyword">if</span> (</span><br><span class="line">             this.tableData[index][<span class="string">'listenSchoolId'</span>] ===</span><br><span class="line">             this.tableData[index - 1][<span class="string">'listenSchoolId'</span>]</span><br><span class="line">           ) &#123;</span><br><span class="line">             this.spanArr[idx][this.position] += 1 // 有相同项</span><br><span class="line">             this.spanArr[idx].push(0) // 名称相同后往数组里面加一项0</span><br><span class="line">           &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">             this.spanArr[idx].push(1) // 同列的前后两行单元格不相同</span><br><span class="line">             this.position = index</span><br><span class="line">           &#125;</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;)</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
             </div>
             <hr/>
 
@@ -607,7 +616,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/05/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">http://yoursite.com/2020/07/05/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</a>
+                    <a href="http://yoursite.com/2020/07/05/ant-design-vue-yi-ji-element-ui-zhong-biao-ge-an-lie-he-bing-xiang-tong-xing/">http://yoursite.com/2020/07/05/ant-design-vue-yi-ji-element-ui-zhong-biao-ge-an-lie-he-bing-xiang-tong-xing/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -645,8 +654,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/">
-                                    <span class="chip bg-color">前端模块化</span>
+                                <a href="/tags/element-ui/">
+                                    <span class="chip bg-color">element-ui</span>
                                 </a>
                             
                         </div>
@@ -814,31 +823,33 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/07/05/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">
+                <a href="/2020/07/05/git-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="前端模块化的思考">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="git使用">
                         
-                        <span class="card-title">前端模块化的思考</span>
+                        <span class="card-title">git使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            commonJs12345module.exports &#x3D; &#123;&#125;require()同步
-AMD &amp; require.js12345678异步依赖前置 提前执行define([],function() &
+                            github1基于git 在线代码仓库 网站界面 互联网开放
+gitlab1基于git   在线码仓库软件 搭建类似github的系统 内部网络git私服 Auto Dev Ops
+git的安装与使用1git  命令 工具 版本控制系统
+
+
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-05
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-05
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -851,12 +862,11 @@ AMD &amp; require.js12345678异步依赖前置 提前执行define([],function() 
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/">
-                        <span class="chip bg-color">前端模块化</span>
+                    <a href="/tags/git/">
+                        <span class="chip bg-color">git</span>
                     </a>
                     
                 </div>
@@ -870,34 +880,20 @@ AMD &amp; require.js12345678异步依赖前置 提前执行define([],function() 
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/05/%E5%89%8D%E7%AB%AF%E5%B8%B8%E8%A7%81%E4%B8%8B%E8%BD%BD%E7%9A%84%E6%80%BB%E7%BB%93/">
+                <a href="/2020/07/05/ben-di-qi-dong-fu-wu-kan-vue-ying-yong-zai-xian-shang-de-xiao-guo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="前端常见下载方法的总结">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="本地启动服务看vue应用在线上的效果">
                         
-                        <span class="card-title">前端常见下载方法的总结</span>
+                        <span class="card-title">本地启动服务看vue应用在线上的效果</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-常用的下载方式接口是下载文件的路径
-
-
-window
-location
-a
-iframe
-form的action触发使用blob下载二进制流
-
-
-先请求数据下载
-
-
-fetch
-XMLhTTP12345678910111213141516
+                            使用http-server使用express搭建本地node服务
+npm install -g express-generatorexpress projectNamecd projectNamenpm install将打包的dist文件夹
                         
                     </div>
                     <div class="publish-info">
@@ -919,8 +915,8 @@ XMLhTTP12345678910111213141516
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/javascript/">
-                        <span class="chip bg-color">javascript</span>
+                    <a href="/tags/webpack/">
+                        <span class="chip bg-color">webpack</span>
                     </a>
                     
                 </div>

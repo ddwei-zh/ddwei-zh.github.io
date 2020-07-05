@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="axios终止请求, 菜鸟的平凡之路">
+    <meta name="keywords" content="file文件几种格式的相互转换, 菜鸟的平凡之路">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>axios终止请求 | 菜鸟的平凡之路</title>
+    <title>file文件几种格式的相互转换 | 菜鸟的平凡之路</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -415,12 +415,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">axios终止请求</h1>
+                    <h1 class="description center-align post-title">file文件几种格式的相互转换</h1>
                 </div>
             </div>
         </div>
@@ -537,8 +537,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/axios/">
-                                <span class="chip bg-color">axios</span>
+                            <a href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/">
+                                <span class="chip bg-color">工具类</span>
                             </a>
                         
                     </div>
@@ -578,46 +578,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="axios中止单个网络请求"><a href="#axios中止单个网络请求" class="headerlink" title="axios中止单个网络请求"></a><code>axios中止单个网络请求</code></h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> CancelToken = axios.CancelToken</span><br><span class="line">config.cancelToken = <span class="keyword">new</span> CancelToken(<span class="function">(<span class="params">cancel</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 存储并使用cancel</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h1 id="axios中止所有的网络请求"><a href="#axios中止所有的网络请求" class="headerlink" title="axios中止所有的网络请求"></a><code>axios中止所有的网络请求</code></h1><ul>
-<li>使用CancelToken</li>
-<li>在axios的请求拦截中，使用store存储每个请求的cancelToken实例</li>
-<li>拦截路由，调用cancelToken()方法终止请求<h1 id="几种控制页面隐藏与显示的方式"><a href="#几种控制页面隐藏与显示的方式" class="headerlink" title="几种控制页面隐藏与显示的方式"></a><code>几种控制页面隐藏与显示的方式</code></h1><blockquote>
-<p>opacity</p>
-</blockquote>
+                <h2 id="file、blob、canvas、dataUrl几种对象之间的转换"><a href="#file、blob、canvas、dataUrl几种对象之间的转换" class="headerlink" title="file、blob、canvas、dataUrl几种对象之间的转换"></a><code>file、blob、canvas、dataUrl几种对象之间的转换</code></h2><ul>
+<li>blob|file对象转成dataUrl<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> readBlobAsDataURL (blob|file, callback) &#123;</span><br><span class="line">    <span class="built_in">let</span> fr = new FileReader()</span><br><span class="line">    fr.onload = <span class="keyword">function</span> (e) &#123;</span><br><span class="line">        callback &amp;&amp; callback(e.target.result)</span><br><span class="line">    &#125;</span><br><span class="line">    fr.readAsDataURL(blob)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><code>canvas转换成dataUrl</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">canvas.toDataURL(<span class="string">'image/png'</span>|<span class="string">'image/jpeg'</span>,0.8)</span><br></pre></td></tr></table></figure></li>
+<li><code>dataUrl转换成blob</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> dataURLtoBlob (dataurl) &#123;</span><br><span class="line">    <span class="built_in">let</span> arr = dataurl.split(<span class="string">','</span>)</span><br><span class="line">    <span class="built_in">let</span> mime = arr[0].match(/:(.*?);/)[1]</span><br><span class="line">    <span class="built_in">let</span> bstr = atob(arr[1])</span><br><span class="line">    <span class="built_in">let</span> n = bstr.length</span><br><span class="line">    <span class="built_in">let</span> u8arr = new Uint8Array(n)</span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        u8arr[n] = bstr.charCodeAt(n)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> new Blob([u8arr], &#123; <span class="built_in">type</span>: mime &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><code>dataUrl转换成file</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">function</span> dataURLtoFile (dataurl, filename) &#123;</span><br><span class="line">    <span class="built_in">let</span> arr = dataurl.split(<span class="string">','</span>)</span><br><span class="line">    <span class="built_in">let</span> mime = arr[0].match(/:(.*?);/)[1]</span><br><span class="line"></span><br><span class="line">    <span class="built_in">let</span> bstr = atob(arr[1])</span><br><span class="line">    <span class="built_in">let</span> n = bstr.length</span><br><span class="line">    <span class="built_in">let</span> u8arr = new Uint8Array(n)</span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        u8arr[n] = bstr.charCodeAt(n)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> new File([u8arr], filename, &#123; <span class="built_in">type</span>: mime &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><code>文件大小格式化</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> formateFileSize(fileSize) &#123;</span><br><span class="line">    <span class="keyword">if</span> (fileSize === 0) &#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="string">'0.0M'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (fileSize &lt; 1024) &#123;</span><br><span class="line">        <span class="built_in">return</span> `<span class="variable">$&#123;fileSize&#125;</span>B`</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (fileSize &lt; 1024 * 1024) &#123;</span><br><span class="line">        <span class="built_in">return</span> `<span class="variable">$&#123;(fileSize / 1024).toFixed(2)&#125;</span>KB`</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (fileSize &lt; 1024 * 1024 * 1024) &#123;</span><br><span class="line">        <span class="built_in">return</span> `<span class="variable">$&#123;(fileSize / 1024 / 1024).toFixed(2)&#125;</span>MB`</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">return</span> `<span class="variable">$&#123;(fileSize / 1024 / 1024 / 1024).toFixed(2)&#125;</span>GB`</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol>
-<li>控制透明度</li>
-<li>父级及子级事件生效</li>
-<li>子级根据最小的opacity生效<blockquote>
-<p>v-show</p>
-</blockquote>
-</li>
-<li>本质使用display: none|block</li>
-<li>不占位，元素节点存在</li>
-<li>父级优先级<blockquote>
-<p>v-if</p>
-</blockquote>
-</li>
-<li>不占位</li>
-<li>元素从页面中去除<h1 id="监听路由"><a href="#监听路由" class="headerlink" title="监听路由"></a><code>监听路由</code></h1><blockquote>
-<p>使用watch</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">    $route(to,<span class="keyword">from</span>) &#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">watch: &#123;</span><br><span class="line">    <span class="string">'$route'</span>: <span class="string">'method'</span></span><br><span class="line">&#125;</span><br><span class="line">watch: &#123;</span><br><span class="line">    $route: &#123;</span><br><span class="line">        handler: <span class="function"><span class="keyword">function</span>(<span class="params">to,from</span>) </span>&#123;</span><br><span class="line">            <span class="comment">//</span></span><br><span class="line">        &#125;,</span><br><span class="line">        deep: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>vue-router的声明周期钩子</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteEnter(to,<span class="keyword">from</span>,next) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br><span class="line">beforeRouteUpdate(to,<span class="keyword">from</span>,next) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br><span class="line">beforeRouteLeave(to,<span class="keyword">from</span>,next) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>全局路由拦截</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    router.beforeEach(<span class="function">(<span class="params">to,<span class="keyword">from</span>,next</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;)</span><br><span class="line">    router.beforeResolve(<span class="function">(<span class="params">to,<span class="keyword">from</span>,next</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;)</span><br><span class="line">    router.afterEach(<span class="function">(<span class="params">to,<span class="keyword">from</span></span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>路由独享守卫</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: xxx,</span><br><span class="line">    name: xxx,</span><br><span class="line">    component: xxx,</span><br><span class="line">    beforeEnter: <span class="function">(<span class="params">to,<span class="keyword">from</span>,next</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
 
             </div>
             <hr/>
@@ -643,7 +611,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/05/axois%E7%BB%88%E6%AD%A2%E8%AF%B7%E6%B1%82/">http://yoursite.com/2020/07/05/axois%E7%BB%88%E6%AD%A2%E8%AF%B7%E6%B1%82/</a>
+                    <a href="http://yoursite.com/2020/07/05/wen-jian-ji-chong-ge-shi-de-zhuan-huan/">http://yoursite.com/2020/07/05/wen-jian-ji-chong-ge-shi-de-zhuan-huan/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -681,8 +649,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/axios/">
-                                    <span class="chip bg-color">axios</span>
+                                <a href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/">
+                                    <span class="chip bg-color">工具类</span>
                                 </a>
                             
                         </div>
@@ -854,24 +822,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/07/05/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/">
+                <a href="/2020/07/05/zi-ding-yi-zu-jian-zhi-ling-cha-jian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="函数防抖与节流">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="自定义组件、指令、插件">
                         
-                        <span class="card-title">函数防抖与节流</span>
+                        <span class="card-title">自定义组件、指令、插件</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-参考文章
-
-
-防抖与节流
-“7分钟了解js的防抖、节流以及使用场景”前言前端中常见的监听鼠标移动、键盘输入、滚动条滚动等由于回调的频繁触发会带来严重的性能问题，而且界面的体验不是很 友好，为了解决这类问题，函数的防抖和节流随之出现。   
+                            组件插件指令123456789101112131415161718192021222324  //注册局部组件指令directives: &#123;  drag: function(el) &#123;    let dragBox = 
                         
                     </div>
                     <div class="publish-info">
@@ -880,8 +843,12 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            John Doe
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/web%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    web前端
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -889,8 +856,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/javascript/">
-                        <span class="chip bg-color">javascript</span>
+                    <a href="/tags/directive/">
+                        <span class="chip bg-color">directive</span>
                     </a>
                     
                 </div>
@@ -901,22 +868,23 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/05/axois%E7%BB%88%E6%AD%A2%E8%AF%B7%E6%B1%82/">
+                <a href="/2020/07/05/shi-xian-wen-zi-chao-chu-zhan-shi-zhan-kai-quan-wen-de-xiao-guo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="axios终止请求">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="实现文字超出展示展开全文的效果">
                         
-                        <span class="card-title">axios终止请求</span>
+                        <span class="card-title">实现文字超出展示展开全文的效果</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            axios中止单个网络请求1234const CancelToken = axios.CancelTokenconfig.cancelToken = new CancelToken((cancel) =&gt; &#123;    // 存
+                            实现文字超过固定行数时展示展开全文的功能
+通过css方式实现超出5行隐藏文本内容  1234display: -webkit-box;-webkit-line-clamp: 5;-webkit-box-orient: vertical;ov
                         
                     </div>
                     <div class="publish-info">
@@ -935,12 +903,11 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/axios/">
-                        <span class="chip bg-color">axios</span>
+                    <a href="/tags/%E5%B1%95%E7%A4%BA%E5%85%A8%E6%96%87/">
+                        <span class="chip bg-color">展示全文</span>
                     </a>
                     
                 </div>

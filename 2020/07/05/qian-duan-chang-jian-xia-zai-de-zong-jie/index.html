@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="自定义组件、指令、插件, 菜鸟的平凡之路">
+    <meta name="keywords" content="前端常见下载方法的总结, 菜鸟的平凡之路">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>自定义组件、指令、插件 | 菜鸟的平凡之路</title>
+    <title>前端常见下载方法的总结 | 菜鸟的平凡之路</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -415,12 +415,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">自定义组件、指令、插件</h1>
+                    <h1 class="description center-align post-title">前端常见下载方法的总结</h1>
                 </div>
             </div>
         </div>
@@ -537,8 +537,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/directive/">
-                                <span class="chip bg-color">directive</span>
+                            <a href="/tags/javascript/">
+                                <span class="chip bg-color">javascript</span>
                             </a>
                         
                     </div>
@@ -578,8 +578,29 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">  //注册局部组件指令</span><br><span class="line">directives: &#123;</span><br><span class="line">  drag: <span class="keyword">function</span>(el) &#123;</span><br><span class="line">    <span class="built_in">let</span> dragBox = el; //获取当前元素</span><br><span class="line">    dragBox.onmousedown = e =&gt; &#123;</span><br><span class="line">      //算出鼠标相对元素的位置</span><br><span class="line">      <span class="built_in">let</span> disX = e.clientX - dragBox.offsetLeft;</span><br><span class="line">      <span class="built_in">let</span> disY = e.clientY - dragBox.offsetTop;</span><br><span class="line">      document.onmousemove = e =&gt; &#123;</span><br><span class="line">        //用鼠标的位置减去鼠标相对元素的位置，得到元素的位置</span><br><span class="line">        <span class="built_in">let</span> left = e.clientX - disX;</span><br><span class="line">        <span class="built_in">let</span> top = e.clientY - disY;</span><br><span class="line">        //移动当前元素</span><br><span class="line">        dragBox.style.left = left + <span class="string">"px"</span>;</span><br><span class="line">        dragBox.style.top = top + <span class="string">"px"</span>;</span><br><span class="line">      &#125;;</span><br><span class="line">      document.onmouseup = e =&gt; &#123;</span><br><span class="line">        //鼠标弹起来的时候不再移动</span><br><span class="line">        document.onmousemove = null;</span><br><span class="line">        //预防鼠标弹起来后还会循环（即预防鼠标放上去的时候还会移动）</span><br><span class="line">        document.onmouseup = null;</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+                <ul>
+<li><a href="https://juejin.im/post/5d254a846fb9a07efd47337e" target="_blank" rel="noopener">常用的下载方式</a><h2 id="接口是下载文件的路径"><a href="#接口是下载文件的路径" class="headerlink" title="接口是下载文件的路径"></a>接口是下载文件的路径</h2></li>
+</ul>
+<ol>
+<li><code>window</code></li>
+<li><code>location</code></li>
+<li><code>a</code></li>
+<li><code>iframe</code></li>
+<li><code>form的action触发</code><h2 id="使用blob下载二进制流"><a href="#使用blob下载二进制流" class="headerlink" title="使用blob下载二进制流"></a><code>使用blob下载二进制流</code></h2></li>
+</ol>
+<ul>
+<li>先请求数据下载</li>
+</ul>
+<ul>
+<li>fetch</li>
+<li>XMLhTTP<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">netDiskMaterialFileDownload(filePath,fileName,startFn,endFn,errorFn) &#123;</span><br><span class="line">    startFn()</span><br><span class="line">    axios(&#123;</span><br><span class="line">      url: filePath,</span><br><span class="line">      method: &#39;get&#39;,</span><br><span class="line">      responseType: &#39;blob&#39;</span><br><span class="line">    &#125;).then( res &#x3D;&gt; &#123;</span><br><span class="line">       endFn()</span><br><span class="line">       let blob &#x3D; new Blob([res.data], &#123;</span><br><span class="line">        type: &#39;application&#x2F;octet-stream&#39;  &#x2F;&#x2F; 下载的文件类型格式（二进制流，不知道下载文件类型可以设置为这个）, 具体请查看HTTP Content-type 对照表</span><br><span class="line">      &#125;)</span><br><span class="line">      if (window.navigator &amp;&amp; window.navigator.msSaveOrOpenBlob) &#123;  &#x2F;&#x2F; IE下对blob的兼容处理</span><br><span class="line">        window.navigator.msSaveOrOpenBlob(blob, fileName);</span><br><span class="line">        return</span><br><span class="line">      &#125;</span><br><span class="line">      let url &#x3D; URL.createObjectURL(blob)</span><br><span class="line">      let a &#x3D; document.createElement(&#39;a&#39;)</span><br><span class="line">      a.style.display &#x3D; &#39;none&#39;</span><br><span class="line">      a.href &#x3D; url</span><br><span class="line">      a.setAttribute(&#39;download&#39;, fileName)   &#x2F;&#x2F; 设置下载的文件名</span><br><span class="line">      document.body.appendChild(a) </span><br><span class="line">      a.click()</span><br><span class="line">      document.body.removeChild(a)       &#x2F;&#x2F;下载完成移除dom元素</span><br><span class="line">      URL.revokeObjectURL(url)  &#x2F;&#x2F;释放blob对象</span><br><span class="line">    &#125;).catch(err &#x3D;&gt; &#123;</span><br><span class="line">      endFn()</span><br><span class="line">      errorFn(err)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="大文件下载"><a href="#大文件下载" class="headerlink" title="大文件下载"></a><code>大文件下载</code></h2></li>
+</ul>
+<ul>
+<li><code>请求超时问题</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">临时通过改变axios的超时时间解决</span><br><span class="line">  禁止先请求数据然后下载的方式</span><br><span class="line">  应该服务设置Content-Type: attachment;filename&#x3D;xxx (附件) &#x2F; inline;filename&#x3D;xxx (内连)</span><br><span class="line">  默认是直接打开</span><br></pre></td></tr></table></figure>
 
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -605,7 +626,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/05/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E3%80%81%E6%8C%87%E4%BB%A4%E3%80%81%E6%8F%92%E4%BB%B6/">http://yoursite.com/2020/07/05/%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E3%80%81%E6%8C%87%E4%BB%A4%E3%80%81%E6%8F%92%E4%BB%B6/</a>
+                    <a href="http://yoursite.com/2020/07/05/qian-duan-chang-jian-xia-zai-de-zong-jie/">http://yoursite.com/2020/07/05/qian-duan-chang-jian-xia-zai-de-zong-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -643,8 +664,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/directive/">
-                                    <span class="chip bg-color">directive</span>
+                                <a href="/tags/javascript/">
+                                    <span class="chip bg-color">javascript</span>
                                 </a>
                             
                         </div>
@@ -816,21 +837,20 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/07/05/%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AA%E6%8B%96%E6%9B%B3&%E7%BC%A9%E6%94%BE%E7%BB%84%E4%BB%B6/">
+                <a href="/2020/07/05/qian-duan-mo-kuai-hua-de-yi-xie-si-kao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="封装一个拖曳&amp;缩放组件">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="前端模块化的思考">
                         
-                        <span class="card-title">封装一个拖曳&amp;缩放组件</span>
+                        <span class="card-title">前端模块化的思考</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            常用的组件
-vue-drag-resize
-vue-draggable-resizeable  手写一个12345678910111213141516171819202122232425262728293031323334353637383
+                            commonJs12345module.exports &#x3D; &#123;&#125;require()同步
+AMD &amp; require.js12345678异步依赖前置 提前执行define([],function() &
                         
                     </div>
                     <div class="publish-info">
@@ -852,8 +872,8 @@ vue-draggable-resizeable  手写一个123456789101112131415161718192021222324252
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/">
+                        <span class="chip bg-color">前端模块化</span>
                     </a>
                     
                 </div>
@@ -867,20 +887,23 @@ vue-draggable-resizeable  手写一个123456789101112131415161718192021222324252
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/05/%E6%96%87%E4%BB%B6%E5%87%A0%E7%A7%8D%E6%A0%BC%E5%BC%8F%E7%9A%84%E8%BD%AC%E6%8D%A2/">
+                <a href="/2020/07/05/git-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="file文件几种格式的相互转换">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="git使用">
                         
-                        <span class="card-title">file文件几种格式的相互转换</span>
+                        <span class="card-title">git使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            file、blob、canvas、dataUrl几种对象之间的转换
-blob|file对象转成dataUrl1234567function readBlobAsDataURL (blob|file, callback) &#123;    
+                            github1基于git 在线代码仓库 网站界面 互联网开放
+gitlab1基于git   在线码仓库软件 搭建类似github的系统 内部网络git私服 Auto Dev Ops
+git的安装与使用1git  命令 工具 版本控制系统
+
+
                         
                     </div>
                     <div class="publish-info">
@@ -902,8 +925,8 @@ blob|file对象转成dataUrl1234567function readBlobAsDataURL (blob|file, callba
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/">
-                        <span class="chip bg-color">工具类</span>
+                    <a href="/tags/git/">
+                        <span class="chip bg-color">git</span>
                     </a>
                     
                 </div>
